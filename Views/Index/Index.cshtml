@@ -1,0 +1,37 @@
+﻿
+
+<div class="text-center">
+    <h1 class="display-4">Welcome  我的第一个core3.1程序</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<h3>ViewData["参数名"] 获取方式</h3>
+@{
+    ViewData["Title"] = "Home Page";
+
+    @*ViewData是进行静态数据传递*@
+    @ViewData["name"]
+    <br>
+    @ViewData["sex"]
+    <br>
+    @ViewData["age"]
+    <br>
+    <hr />
+    <h3>ViewBag.属性名 ,   获取方式</h3>
+    @*ViewBag是对ViewData的封装，进行动态数据传递*@
+    @ViewBag.Name
+    <br>
+    @ViewBag.Sex
+    <br>
+    @ViewBag.Age
+    <br>
+    <hr />
+    <h3>Model.属性名 ,   获取方式</h3>
+    @*Model也是进行动态数据传递，需要控制器return一个model*@
+    @Model.Name
+    <br>
+    @Model.Age
+    <br>
+    @Model.Sex
+    <br>
+}

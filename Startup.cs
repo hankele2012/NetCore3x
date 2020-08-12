@@ -24,6 +24,12 @@ namespace NetCore3x
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            ///------自定义配置 S-----------
+            services.AddSession(); //添加session到容器
+            services.AddMvc().AddRazorRuntimeCompilation();  // 安装Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation包  cshtml 热部署
+
+            ///------自定义配置 E-----------
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +58,10 @@ namespace NetCore3x
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            ///------自定义配置 S-----------
+            app.UseSession(); //启用Session
+            ///------自定义配置 E-----------
         }
     }
 }
